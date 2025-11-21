@@ -4,7 +4,7 @@ from models.user_models import UsersResponse
 
 def test_delete_user(api_session):
     base_url = "https://release-gs.qa-playground.com/api/v1"
-    session = api_session
+    session = api_session(task_id="API-1")
     setup_response = session.post(url=base_url + "/setup")
     assert setup_response.status_code == 205
     users_response = session.get(url=base_url + "/users")
